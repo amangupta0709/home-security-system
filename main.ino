@@ -7,6 +7,7 @@
 #include <Wire.h>
 #include <LiquidCrystal.h>
 
+
 LiquidCrystal lcd(A0, A1, A2, A3, A4, A5);
 
 char keys[4][3]={
@@ -38,15 +39,15 @@ int total_attempts = 0; // Variable to determine the number of wrong attempts.
 void setup()
 {
   
-  //pinMode(redPin,OUTPUT);
-  //pinMode(greenPin,OUTPUT);
-  //pinMode(buzzer, OUTPUT);
+  pinMode(redPin,OUTPUT);
+  pinMode(greenPin,OUTPUT);
+  pinMode(buzzer, OUTPUT);
  
   lcd.begin(16, 2);
   lcd.print(" Arduino Door");
   lcd.setCursor(0, 1);
   lcd.print("--Lock project--");
-  delay(3000);
+  delay(1000);
   lcd.clear();
 }
 
@@ -70,7 +71,7 @@ void loop()
       lcd.clear();
       setLocked(true);
       lcd.print("  Door Closed");
-      delay(2000);
+      delay(1000);
       dooropen = false;
     }
   }
@@ -165,8 +166,8 @@ void Open()
     if(data == password)
     {
       lcd.clear();
-      setLocked(false);
       lcd.print("  Access Granted");
+      setLocked(false);
       dooropen = true;
     }
     else 
