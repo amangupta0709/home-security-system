@@ -4,3 +4,5 @@ build/
 
 # vscode workspace configurations
 .vscode/
+
+node-server/node_modules/
